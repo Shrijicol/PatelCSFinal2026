@@ -12,7 +12,6 @@
       font-family: 'Open Sauce Sans';
       src: url('fonts/OpenSauceSans-Bold.ttf') format('truetype');
       font-weight: 700;
-      font-style: normal;
     }
 
     *, *::before, *::after {
@@ -27,18 +26,13 @@
       --border: #2a2a2a;
       --accent: #c8a96e;
       --text: #e8e4dc;
-      --muted: #e8e4dc;
-    }
-
-    html, body {
-      height: 100%;
+      --muted: #6b6b6b;
     }
 
     body {
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
       font-family: 'DM Mono', monospace;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,12 +42,9 @@
     body::after {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      z-index: 10;
     }
 
     .hero {
@@ -61,93 +52,60 @@
       max-width: 1100px;
       margin: 0 auto;
       animation: fadeDown 0.9s ease both;
-      position: relative;
-      z-index: 1;
     }
 
     .hero img {
       width: 100%;
-      height: auto;
       display: block;
-      object-fit: cover;
     }
 
     main {
       width: 100%;
       max-width: 1100px;
-      padding: 48px 0 80px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      flex: 1;
+      padding: 40px 0 80px;
     }
 
     .socials-section {
       width: 100%;
-      max-width: 820px;
-      margin: 0 auto 60px;
-      text-align: center;
-      animation: fadeUp 0.8s 0.15s ease both;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+      animation: fadeUp 0.8s ease both;
     }
 
     .socials-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      justify-content: center;
+      grid-template-columns: repeat(6, 120px);
+      gap: 26px;
     }
 
     .social-card {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(145deg, #2b313a, #242a33);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 76px;
-      padding: 20px 16px;
       text-decoration: none;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.82rem;
       position: relative;
-      overflow: hidden;
-      transition:
-        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.3s ease,
-        border-color 0.25s ease;
+      box-shadow:
+        0 8px 0 rgba(16,20,26,0.95),
+        0 14px 24px rgba(0,0,0,0.28);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
     }
 
     .social-card:hover {
-      transform: translateY(-4px) scale(1.015);
-      border-color: #bfa46a;
+      transform: translateY(-6px) scale(1.03);
       box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.22),
-        0 2px 8px rgba(200, 169, 110, 0.08);
+        0 10px 0 rgba(16,20,26,0.95),
+        0 18px 30px rgba(0,0,0,0.34);
     }
 
-    .social-card:visited,
-    .social-card:hover,
-    .social-card:active {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .social-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-
-    .social-card:hover::before {
-      transform: scaleX(1);
+    .social-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
     }
 
     .cards-grid {
@@ -169,110 +127,41 @@
       padding: 52px 32px;
       min-height: 300px;
       position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition:
-        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.35s ease,
-        border-color 0.3s ease;
-      animation: fadeUp 0.8s ease both;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
-    .card:visited,
-    .card:hover,
-    .card:active {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .card:nth-child(1) { animation-delay: 0.3s; }
-    .card:nth-child(2) { animation-delay: 0.45s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
 
     .card:hover {
       transform: translateY(-6px) scale(1.02);
-      border-color: #bfa46a;
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25),
-        0 2px 10px rgba(200, 169, 110, 0.08);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(200,169,110,0.06) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .card:hover::after {
-      opacity: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
     .card-title {
       font-family: 'Open Sauce Sans', serif;
-      font-weight: 700;
       font-size: 2rem;
-      color: var(--text);
       margin-top: 8px;
-      line-height: 1.2;
-      position: relative;
-      z-index: 2;
     }
 
     .card-arrow {
       position: absolute;
       bottom: 28px;
       right: 28px;
-      font-size: 1rem;
-      color: var(--border);
-      transition: transform 0.3s ease, color 0.3s ease;
-      z-index: 2;
-    }
-
-    .card:hover .card-arrow {
-      transform: translate(4px, -4px);
-      color: var(--accent);
     }
 
     .intro-text {
       margin-top: 80px;
       text-align: center;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
     }
 
     .intro-main {
       font-family: "Times New Roman", serif;
       font-size: 1.6rem;
       margin-bottom: 16px;
-      color: var(--text);
     }
 
     .intro-sub {
       font-family: "Times New Roman", serif;
       font-size: 1rem;
-      line-height: 1.7;
       color: var(--text);
     }
 
@@ -281,43 +170,42 @@
       max-width: 1100px;
       padding: 24px 0 40px;
       border-top: 1px solid var(--border);
-      position: relative;
-      z-index: 1;
     }
 
     .footer-copy {
       font-size: 0.6rem;
-      letter-spacing: 0.15em;
       color: var(--muted);
-      text-transform: uppercase;
     }
 
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-18px); }
-      to { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; }
     }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 900px) {
+      .socials-grid {
+        grid-template-columns: repeat(3, 120px);
+      }
     }
 
     @media (max-width: 768px) {
-      main, footer {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .socials-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .cards-grid {
         grid-template-columns: 1fr;
       }
+
+      .socials-grid {
+        grid-template-columns: repeat(2, 120px);
+      }
     }
+
   </style>
 </head>
+
 <body>
 
   <div class="hero">
@@ -325,14 +213,17 @@
   </div>
 
   <main>
+
     <div class="socials-section">
       <div class="socials-grid">
-        <a href="https://www.youtube.com/@shrijipatel" class="social-card" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.twitch.tv/shrijipatel" class="social-card" target="_blank" rel="noopener noreferrer">Twitch</a>
-        <a href="https://x.com/shrijicol" class="social-card" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://instagram.com/shrijipatel07" class="social-card" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://tiktok.com/@shriji.patell" class="social-card" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://letterboxd.com/shrijipatell" class="social-card" target="_blank" rel="noopener noreferrer">Letterboxd</a>
+
+        <a href="https://youtube.com/@shrijipatel" class="social-card"><img src="youtube.png"></a>
+        <a href="https://twitch.tv/shrijipatel" class="social-card"><img src="twitch.png"></a>
+        <a href="https://x.com/shrijicol" class="social-card"><img src="x.png"></a>
+        <a href="https://instagram.com/shrijipatel07" class="social-card"><img src="instagram.png"></a>
+        <a href="https://tiktok.com/@shriji.patell" class="social-card"><img src="tiktok.png"></a>
+        <a href="https://letterboxd.com/shrijipatell" class="social-card"><img src="letterboxd.png"></a>
+
       </div>
     </div>
 
@@ -359,6 +250,7 @@
         And this is my website! I make day-in-my-life videos, vlog style content, and overall live a prosperous and stress free life. Feel free to check out all my socials!
       </p>
     </div>
+
   </main>
 
   <footer>
