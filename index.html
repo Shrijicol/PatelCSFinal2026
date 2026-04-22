@@ -29,6 +29,10 @@
       --muted: #6b6b6b;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -37,14 +41,18 @@
       flex-direction: column;
       align-items: center;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
     body::after {
       content: '';
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      z-index: 10;
     }
 
     .hero {
@@ -57,12 +65,14 @@
     .hero img {
       width: 100%;
       display: block;
+      height: auto;
     }
 
     main {
       width: 100%;
       max-width: 1100px;
       padding: 40px 0 80px;
+      flex: 1;
     }
 
     .socials-section {
@@ -90,16 +100,17 @@
       text-decoration: none;
       position: relative;
       box-shadow:
-        0 8px 0 rgba(16,20,26,0.95),
-        0 14px 24px rgba(0,0,0,0.28);
-      transition: transform 0.28s ease, box-shadow 0.28s ease;
+        0 8px 0 rgba(16, 20, 26, 0.95),
+        0 14px 24px rgba(0, 0, 0, 0.28);
+      transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        filter 0.28s ease;
     }
 
     .social-card:hover {
       transform: translateY(-6px) scale(1.03);
-      box-shadow:
-        0 10px 0 rgba(16,20,26,0.95),
-        0 18px 30px rgba(0,0,0,0.34);
+      filter: brightness(1.04);
     }
 
     .social-card img {
@@ -111,6 +122,49 @@
     .social-card.tiktok img {
       width: 72%;
       height: 72%;
+    }
+
+    .social-card.youtube:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(255, 0, 0, 0.35);
+    }
+
+    .social-card.twitch:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(145, 70, 255, 0.35);
+    }
+
+    .social-card.x:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(255, 255, 255, 0.18);
+    }
+
+    .social-card.instagram:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(225, 48, 108, 0.35);
+    }
+
+    .social-card.tiktok:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(37, 244, 238, 0.28),
+        0 0 14px rgba(254, 44, 85, 0.22);
+    }
+
+    .social-card.letterboxd:hover {
+      box-shadow:
+        0 10px 0 rgba(16, 20, 26, 0.95),
+        0 18px 30px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(0, 224, 84, 0.3);
     }
 
     .cards-grid {
@@ -132,44 +186,78 @@
       padding: 52px 32px;
       min-height: 300px;
       position: relative;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      overflow: hidden;
+      transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border-color: #bfa46a;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
     }
 
     .card-title {
       font-family: 'Open Sauce Sans', serif;
       font-size: 2rem;
       margin-top: 8px;
+      color: var(--text);
     }
 
     .card-arrow {
       position: absolute;
       bottom: 28px;
       right: 28px;
+      color: var(--border);
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    /* INTRO */
+    .card:hover .card-arrow {
+      transform: translate(4px, -4px);
+      color: var(--accent);
+    }
 
     .intro-text {
       margin-top: 80px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
-      max-width: 900px;
     }
 
     .intro-main {
       font-family: "Times New Roman", serif;
       font-size: 1.6rem;
       margin-bottom: 16px;
+      text-align: center;
+      color: var(--text);
     }
 
     .intro-sub {
       font-family: "Times New Roman", serif;
       font-size: 1rem;
       color: var(--text);
+      text-align: center;
+      line-height: 1.7;
     }
 
     footer {
@@ -185,13 +273,25 @@
     }
 
     @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 900px) {
@@ -201,6 +301,11 @@
     }
 
     @media (max-width: 768px) {
+      main {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
       .cards-grid {
         grid-template-columns: 1fr;
       }
@@ -209,28 +314,40 @@
         grid-template-columns: repeat(2, 120px);
       }
     }
-
   </style>
 </head>
 
 <body>
-
   <div class="hero">
     <img src="header.jpg" alt="Shriji Patel" />
   </div>
 
   <main>
-
     <div class="socials-section">
       <div class="socials-grid">
+        <a href="https://youtube.com/@shrijipatel" class="social-card youtube" target="_blank" rel="noopener noreferrer">
+          <img src="youtube.png" alt="YouTube" />
+        </a>
 
-        <a href="https://youtube.com/@shrijipatel" class="social-card"><img src="youtube.png"></a>
-        <a href="https://twitch.tv/shrijipatel" class="social-card"><img src="twitch.png"></a>
-        <a href="https://x.com/shrijicol" class="social-card"><img src="x.png"></a>
-        <a href="https://instagram.com/shrijipatel07" class="social-card"><img src="instagram.png"></a>
-        <a href="https://tiktok.com/@shriji.patell" class="social-card tiktok"><img src="tiktok.png"></a>
-        <a href="https://letterboxd.com/shrijipatell" class="social-card"><img src="letterboxd.png"></a>
+        <a href="https://twitch.tv/shrijipatel" class="social-card twitch" target="_blank" rel="noopener noreferrer">
+          <img src="twitch.png" alt="Twitch" />
+        </a>
 
+        <a href="https://x.com/shrijicol" class="social-card x" target="_blank" rel="noopener noreferrer">
+          <img src="x.png" alt="X" />
+        </a>
+
+        <a href="https://instagram.com/shrijipatel07" class="social-card instagram" target="_blank" rel="noopener noreferrer">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+
+        <a href="https://tiktok.com/@shriji.patell" class="social-card tiktok" target="_blank" rel="noopener noreferrer">
+          <img src="tiktok.png" alt="TikTok" />
+        </a>
+
+        <a href="https://letterboxd.com/shrijipatell" class="social-card letterboxd" target="_blank" rel="noopener noreferrer">
+          <img src="letterboxd.png" alt="Letterboxd" />
+        </a>
       </div>
     </div>
 
@@ -257,12 +374,10 @@
         And this is my website! I make day-in-my-life videos, vlog style content, and overall live a prosperous and stress free life. Feel free to check out all my socials!
       </p>
     </div>
-
   </main>
 
   <footer>
     <span class="footer-copy">© 2026 Shriji Patel</span>
   </footer>
-
 </body>
 </html>
