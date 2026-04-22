@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shriji Patel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
   <style>
     @font-face {
       font-family: 'Open Sauce Sans';
       src: url('fonts/OpenSauceSans-Bold.ttf') format('truetype');
       font-weight: 700;
-      font-style: normal;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,15 +25,10 @@
       --muted: #6b6b6b;
     }
 
-    html, body {
-      height: 100%;
-    }
-
     body {
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
       font-family: 'DM Mono', monospace;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -42,12 +38,9 @@
     body::after {
       content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      z-index: 10;
     }
 
     .hero {
@@ -55,34 +48,17 @@
       max-width: 1100px;
       margin: 0 auto;
       animation: fadeDown 0.9s ease both;
-      position: relative;
-      z-index: 1;
     }
 
     .hero img {
       width: 100%;
       display: block;
-      object-fit: cover;
-    }
-
-    .hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-  }
-
-    nav {
-      display: none;
     }
 
     main {
       width: 100%;
       max-width: 1100px;
       padding: 60px 0 80px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      flex: 1;
     }
 
     .cards-grid {
@@ -105,23 +81,22 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      transition:
-        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.35s ease,
-        border-color 0.3s ease;
-      animation: fadeUp 0.8s ease both;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s ease,
+                  border-color 0.3s ease;
     }
 
-    .card:nth-child(1) { animation-delay: 0.3s; }
-    .card:nth-child(2) { animation-delay: 0.45s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: #bfa46a;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25),
+                  0 2px 10px rgba(200,169,110,0.08);
+    }
 
     .card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 1px;
       background: var(--accent);
       transform: scaleX(0);
@@ -129,45 +104,22 @@
       transition: transform 0.4s ease;
     }
 
-    .card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(200,169,110,0.06) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s;
+    .card:hover::before {
+      transform: scaleX(1);
     }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: #bfa46a;
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25),
-        0 2px 10px rgba(200, 169, 110, 0.08);
-    }
-
-    .card:hover::before { transform: scaleX(1); }
-    .card:hover::after { opacity: 1; }
 
     .card-title {
-      font-family: 'Open Sauce Sans', Arial, sans-serif;
+      font-family: 'Open Sauce Sans', sans-serif;
       font-size: 2rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-      margin-top: 8px;
-      position: relative;
-      z-index: 2;
+      margin-top: 10px;
     }
 
     .card-arrow {
       position: absolute;
       bottom: 28px;
       right: 28px;
-      font-size: 1rem;
       color: var(--border);
-      transition: transform 0.3s ease, color 0.3s ease;
-      z-index: 2;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .card:hover .card-arrow {
@@ -175,24 +127,38 @@
       color: var(--accent);
     }
 
+    .intro-text {
+      margin-top: 80px;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .intro-main {
+      font-family: "Times New Roman", serif;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .intro-sub {
+      font-family: "Times New Roman", serif;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     footer {
       width: 100%;
       max-width: 1100px;
       padding: 24px 0 40px;
-      position: relative;
-      z-index: 1;
       border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      animation: fadeUp 0.8s 0.7s ease both;
     }
 
     .footer-copy {
       font-size: 0.6rem;
       letter-spacing: 0.15em;
       color: var(--muted);
-      text-transform: uppercase;
     }
 
     @keyframes fadeDown {
@@ -200,37 +166,22 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @media (max-width: 768px) {
-      main, footer { padding-left: 24px; padding-right: 24px; }
       .cards-grid { grid-template-columns: 1fr; }
-      .card { min-height: 220px; }
-      .card-title { font-size: 1.75rem; }
+      main, footer { padding-left: 24px; padding-right: 24px; }
     }
   </style>
 </head>
+
 <body>
 
   <div class="hero">
-    <img src="header.jpg" alt="Shriji Patel" />
+    <img src="images/header.png" alt="Shriji Patel" />
   </div>
-
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-item">About</span>
-      <div class="nav-divider"></div>
-      <span class="nav-item">Portfolio</span>
-      <div class="nav-divider"></div>
-      <span class="nav-item">FAQs</span>
-    </div>
-  </nav>
 
   <main>
     <div class="cards-grid">
+
       <a href="about.html" class="card">
         <h2 class="card-title">About</h2>
         <span class="card-arrow">↗</span>
@@ -245,11 +196,20 @@
         <h2 class="card-title">FAQs</h2>
         <span class="card-arrow">↗</span>
       </a>
+
     </div>
+
+    <div class="intro-text">
+      <p class="intro-main">Hello... my name is Shriji!</p>
+      <p class="intro-sub">
+        And this is my website! I make day-in-my-life videos, vlog style content, and overall live a prosperous and stress free life. Feel free to check out all my socials!
+      </p>
+    </div>
+
   </main>
 
   <footer>
-    <span class="footer-copy">&copy; 2026 Shriji Patel</span>
+    <span class="footer-copy">© 2026 Shriji Patel</span>
   </footer>
 
 </body>
