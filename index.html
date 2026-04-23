@@ -23,7 +23,6 @@
     :root {
       --bg: #0d0d0d;
       --surface: #161616;
-      --surface-blue: #132436;
       --border: #2a2a2a;
       --accent: #c8a96e;
       --text: #e8e4dc;
@@ -282,33 +281,6 @@
       line-height: 1.7;
     }
 
-    .x-feed-shell {
-      width: 100%;
-      max-width: 1720px;
-      margin: 80px auto 0;
-      background: linear-gradient(180deg, #132436 0%, #132436 100%);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.03),
-        0 18px 36px rgba(0,0,0,0.24);
-    }
-
-    .x-feed-inner {
-      width: 100%;
-      min-height: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    .x-feed-inner .twitter-timeline {
-      width: 100% !important;
-      min-width: 100% !important;
-    }
-
     footer {
       width: 100%;
       max-width: 1100px;
@@ -343,12 +315,6 @@
       }
     }
 
-    @media (max-width: 1200px) {
-      .x-feed-shell {
-        max-width: 1100px;
-      }
-    }
-
     @media (max-width: 900px) {
       .socials-grid {
         grid-template-columns: repeat(3, 120px);
@@ -367,11 +333,6 @@
 
       .socials-grid {
         grid-template-columns: repeat(2, 120px);
-      }
-
-      .x-feed-shell {
-        padding: 16px;
-        border-radius: 14px;
       }
     }
   </style>
@@ -434,28 +395,13 @@
     <div class="intro-text">
       <p class="intro-main">Hello... my name is Shriji!</p>
       <p class="intro-sub">
-        And this is my website! I make day-in-my-life videos, vlog style content, and overall live a prosperous and stress free life. Feel free to check out all my socials!
+        And this is my website!
       </p>
-    </div>
-
-    <div class="x-feed-shell">
-      <div class="x-feed-inner">
-        <a
-          class="twitter-timeline"
-          data-theme="dark"
-          data-height="620"
-          data-chrome="noheader nofooter"
-          href="https://twitter.com/shrijicol">
-          Posts by @shrijicol
-        </a>
-      </div>
     </div>
   </main>
 
   <footer>
     <span class="footer-copy">© 2026 Shriji Patel</span>
   </footer>
-
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
