@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -221,6 +222,24 @@
       font-size: 2rem;
       margin-top: 8px;
       color: var(--text);
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-icon {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      margin-top: 38px;
+      margin-bottom: auto;
+      opacity: 0.92;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      transform: scale(1.08);
     }
 
     .card-arrow {
@@ -229,6 +248,7 @@
       right: 28px;
       color: var(--border);
       transition: transform 0.3s ease, color 0.3s ease;
+      z-index: 2;
     }
 
     .card:hover .card-arrow {
@@ -354,16 +374,19 @@
     <div class="cards-grid">
       <a href="about.html" class="card">
         <h2 class="card-title">About</h2>
+        <img src="person.png" class="card-icon" alt="About" />
         <span class="card-arrow">↗</span>
       </a>
 
       <a href="portfolio.html" class="card">
         <h2 class="card-title">Portfolio</h2>
+        <img src="picture.png" class="card-icon" alt="Portfolio" />
         <span class="card-arrow">↗</span>
       </a>
 
       <a href="faqs.html" class="card">
         <h2 class="card-title">FAQs</h2>
+        <img src="question mark.png" class="card-icon" alt="FAQs" />
         <span class="card-arrow">↗</span>
       </a>
     </div>
@@ -381,3 +404,4 @@
   </footer>
 </body>
 </html>
+```
