@@ -29,6 +29,10 @@ box-sizing:border-box;
 --muted:#6b6b6b;
 }
 
+html,body{
+height:100%;
+}
+
 body{
 background:var(--bg);
 color:var(--text);
@@ -55,37 +59,39 @@ transparent
 z-index:20;
 }
 
-.header{
+/* Header image from homepage */
+
+.hero{
 width:100%;
-max-width:1200px;
-padding:34px 0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid var(--border);
+max-width:1100px;
+margin:0 auto;
+animation:fadeDown .9s ease both;
 }
 
-.logo{
-font-family:'Open Sauce Sans';
-font-size:1.2rem;
-letter-spacing:.06em;
+.hero img{
+width:100%;
+display:block;
+height:auto;
+transition:opacity .3s ease;
 }
 
-.back-link{
-text-decoration:none;
-color:var(--text);
-opacity:.75;
-transition:.3s;
+.hero:hover img{
+opacity:.96;
 }
 
-.back-link:hover{
-opacity:1;
+.page-label{
+font-family:"Times New Roman", serif;
+font-size:3rem;
+text-align:center;
+margin:55px 0 35px;
 }
+
+/* Main content */
 
 main{
 width:100%;
 max-width:1280px;
-padding:70px 60px 110px;
+padding:30px 60px 110px;
 }
 
 .intro{
@@ -128,12 +134,24 @@ line-height:1.95;
 opacity:.92;
 }
 
-footer{
+/* Footer */
+
+.footer{
 width:100%;
 max-width:1100px;
 padding:34px 0 46px;
 border-top:1px solid var(--border);
 text-align:center;
+opacity:0;
+transform:translateY(20px);
+transition:
+opacity .9s cubic-bezier(0.22,1,0.36,1),
+transform .9s cubic-bezier(0.22,1,0.36,1);
+}
+
+.footer.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .footer-copy{
@@ -142,7 +160,19 @@ color:var(--muted);
 letter-spacing:.08em;
 }
 
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 @media(max-width:1100px){
+
 .columns{
 grid-template-columns:1fr;
 gap:70px;
@@ -163,19 +193,24 @@ font-size:2.4rem;
 .intro p{
 font-size:1.55rem;
 }
+
+.page-label{
+font-size:2.4rem;
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<div class="logo">ABOUT</div>
-
-<a href="index.html" class="back-link">
-← Back Home
+<!-- Same header as homepage -->
+<div class="hero">
+<a href="index.html">
+<img src="header.jpg" alt="Shriji Patel">
 </a>
 </div>
+
+<h1 class="page-label">ABOUT</h1>
 
 <main>
 
@@ -183,46 +218,98 @@ font-size:1.55rem;
 <h1>About Me</h1>
 
 <p>
-You might know the facade of my life. Here's the more detailed version!
+So by watching my videos you may know that I’m a guy who plays games on stream
+and makes content for a living, but my story is a little more than that.
 </p>
 </section>
+
 
 <section class="columns">
 
 <div class="column">
+
 <h2>Who am I?</h2>
 
 <p>
-I was born in July 2007 and raised in the Philadelphia area. From a young age, I’ve always had a passion for creativity, whether through gaming, building with LEGO, exuberating my passion of Star Wars, or diving into new interests as they come along. I’ve always enjoyed balancing fun with ambition, and growing up I stayed involved in many activities both inside and outside of school, alongside creating content on YouTube. Through those experiences, I was fortunate to serve as Class President and become a member of the National Honors Society—accomplishments that helped shape my leadership, discipline, and drive. At my core, I’m someone who enjoys creating, entertaining, and constantly exploring new ideas.
+I’m Shriji Patel, born in July 2007 and raised in the Philadelphia area.
+From a young age, I’ve always had a passion for creativity, whether through
+gaming, building with LEGO, exploring the world of Star Wars, or diving into
+new interests as they come along. I’ve always enjoyed balancing fun with ambition,
+and growing up I stayed involved in many activities both inside and outside of
+school, alongside creating content on YouTube. Through those experiences,
+I was fortunate to serve as Class President and become a member of the National
+Honors Society—accomplishments that helped shape my leadership, discipline,
+and drive. At my core, I’m someone who enjoys creating, entertaining,
+and constantly exploring new ideas.
 </p>
 
 </div>
 
+
 <div class="column">
+
 <h2>What is my typical day like?</h2>
 
 <p>
-My days usually begin early—I’m up around 5:00 AM and like starting with structure. On weekdays, I’m at the gym each morning, which has become a big part of my routine. Mondays, Wednesdays, and Fridays I work from 9 to 4 as a store manager at my family’s restaurant, while Tuesdays and Thursdays are spent at Temple University. After school or work, I usually go for a run and focus on getting through my daily responsibilities, whether that’s content, schoolwork, or personal projects. I like staying productive during the day, but I also make time to unwind. Most nights end with watching a movie or a TV show, which is one of my favorite ways to relax and reset for the next day.
+My days usually begin early—I’m up around 5:00 AM and like starting with structure.
+On weekdays, I’m at the gym each morning, which has become a big part of my routine.
+Mondays, Wednesdays, and Fridays I work from 9 to 4 as a store manager at my family’s
+restaurant, while Tuesdays and Thursdays are spent at Temple University.
+After school or work, I usually go for a run and focus on getting through my daily
+responsibilities, whether that’s content, schoolwork, or personal projects.
+I like staying productive during the day, but I also make time to unwind.
+Most nights end with watching a movie or a TV show, which is one of my favorite
+ways to relax and reset for the next day.
 </p>
+
 </div>
 
+
 <div class="column">
+
 <h2>My Goals and Vision</h2>
 
 <p>
-My goals and vision revolve around building a future that blends innovation, creativity, and independence. First and foremost, I want to graduate and establish a strong career path while continuing to grow personally and professionally. A major passion of mine is mastering the study of artificial intelligence, not just understanding the technology, but exploring how it can shape the future. I also hope to build a virtual business of my own, creating something scalable and meaningful online. Alongside that, I want to continue pursuing content creation through YouTube, TikTok, Instagram, X, and social media in general, using those platforms as both creative outlets and opportunities to inspire others. Ultimately, my vision is to combine technology, entrepreneurship, and content into a life built around freedom, purpose, and constant growth.
+My goals and vision revolve around building a future that blends innovation,
+creativity, and independence. First and foremost, I want to graduate and establish
+a strong career path while continuing to grow personally and professionally.
+A major passion of mine is mastering the study of artificial intelligence,
+not just understanding the technology, but exploring how it can shape the future.
+I also hope to build a virtual business of my own, creating something scalable
+and meaningful online. Alongside that, I want to continue pursuing content creation
+through YouTube, TikTok, Instagram, X, and social media in general, using those
+platforms as both creative outlets and opportunities to inspire others.
+Ultimately, my vision is to combine technology, entrepreneurship, and content into
+a life built around freedom, purpose, and constant growth.
 </p>
+
 </div>
 
 </section>
 
 </main>
 
-<footer>
+
+<footer class="footer">
 <span class="footer-copy">
 © 2026 Shriji Patel. All Rights Reserved.
 </span>
 </footer>
+
+
+<script>
+const footer = document.querySelector('.footer');
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+footer.classList.add('visible');
+}
+});
+},{threshold:0.2});
+
+observer.observe(footer);
+</script>
 
 </body>
 </html>
