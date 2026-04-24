@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — Shriji Patel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family:'Open Sauce Sans';
+  src:url('fonts/OpenSauceSans-Bold.ttf') format('truetype');
+  font-weight:700;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#0d0d0d;
+  --border:#2a2a2a;
+  --accent:#c8a96e;
+  --text:#e8e4dc;
+}
+
+html,body{
+  height:100%;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Mono', monospace;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    transparent
+  );
+}
+
+.header{
+  width:100%;
+  max-width:1100px;
+  padding:32px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-family:'Open Sauce Sans';
+  font-size:1.25rem;
+  letter-spacing:.06em;
+}
+
+.back-link{
+  text-decoration:none;
+  color:var(--text);
+  opacity:.75;
+  transition:.3s;
+}
+
+.back-link:hover{
+  opacity:1;
+}
+
+.blank-page{
+  flex:1;
+  width:100%;
+  max-width:1100px;
+}
+
+footer{
+  width:100%;
+  max-width:1100px;
+  text-align:center;
+  padding:32px 0 40px;
+  border-top:1px solid var(--border);
+}
+
+.footer-copy{
+  font-size:.85rem;
+  color:#6b6b6b;
+  letter-spacing:.08em;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">ABOUT</div>
+
+  <a href="index.html" class="back-link">
+    ← Back Home
+  </a>
+</div>
+
+<div class="blank-page">
+</div>
+
+<footer>
+<span class="footer-copy">
+© 2026 Shriji Patel. All Rights Reserved.
+</span>
+</footer>
+
+</body>
+</html>
