@@ -124,14 +124,16 @@ opacity:.92;
 
 .favorites-section{
 margin-top:110px;
-display:flex;
-flex-direction:column;
+}
+
+.favorite-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:90px;
+width:100%;
 }
 
 .favorite-block{
-max-width:850px;
-margin:0 auto;
 text-align:center;
 }
 
@@ -194,6 +196,11 @@ gap:70px;
 text-align:left;
 }
 
+.favorite-grid{
+grid-template-columns:1fr;
+gap:70px;
+}
+
 main{
 padding:60px 34px 90px;
 }
@@ -228,7 +235,6 @@ and makes content for a living, but my story is a little more than that.
 </p>
 </section>
 
-
 <section class="columns">
 
 <div class="column">
@@ -249,7 +255,6 @@ and constantly exploring new ideas.
 
 </div>
 
-
 <div class="column">
 <h2>What is my typical day like?</h2>
 
@@ -266,7 +271,6 @@ ways to relax and reset for the next day.
 </p>
 
 </div>
-
 
 <div class="column">
 <h2>My Goals and Vision</h2>
@@ -291,6 +295,8 @@ a life built around freedom, purpose, and constant growth.
 
 <section class="favorites-section">
 
+<div class="favorite-grid">
+
 <div class="favorite-block">
 <h2>Top 10 Favorite Movies</h2>
 <p>placeholder text</p>
@@ -301,17 +307,17 @@ a life built around freedom, purpose, and constant growth.
 <p>placeholder text</p>
 </div>
 
+</div>
+
 </section>
 
 </main>
-
 
 <footer class="footer">
 <span class="footer-copy">
 © 2026 Shriji Patel. All Rights Reserved.
 </span>
 </footer>
-
 
 <script>
 const footer = document.querySelector('.footer');
