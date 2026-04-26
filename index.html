@@ -124,52 +124,9 @@
       height: 72%;
     }
 
-    .social-card.youtube:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(255, 0, 0, 0.35);
-    }
-
-    .social-card.twitch:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(145, 70, 255, 0.35);
-    }
-
-    .social-card.x:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(255, 255, 255, 0.18);
-    }
-
-    .social-card.instagram:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(225, 48, 108, 0.35);
-    }
-
-    .social-card.tiktok:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(37, 244, 238, 0.28),
-        0 0 14px rgba(254, 44, 85, 0.22);
-    }
-
-    .social-card.letterboxd:hover {
-      box-shadow:
-        0 10px 0 rgba(16, 20, 26, 0.95),
-        0 18px 30px rgba(0, 0, 0, 0.34),
-        0 0 22px rgba(0, 224, 84, 0.3);
-    }
-
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 28px;
     }
 
@@ -281,32 +238,36 @@
       line-height: 1.7;
     }
 
-    footer {
+    .footer {
       width: 100%;
       max-width: 1100px;
-      padding: 24px 0 40px;
+      padding: 34px 0 46px;
       border-top: 1px solid var(--border);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    footer {
-  width: 100%;
-  max-width: 1100px;
-  padding: 24px 0 40px;
-  border-top: 1px solid var(--border);
-  text-align: center;
+    .footer.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-.footer-copy {
-  font-size: 0.85rem; 
-  color: var(--muted);
-  letter-spacing: 0.08em;
-}
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
 
     @keyframes fadeDown {
       from {
         opacity: 0;
         transform: translateY(-18px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -318,6 +279,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -383,20 +345,14 @@
 
     <div class="cards-grid">
       <a href="about.html" class="card">
-        <h2 class="card-title">ABOUT</h2>
-        <img src="person.png" class="card-icon" alt="ABOUT" />
+        <h2 class="card-title">About</h2>
+        <img src="person.png" class="card-icon" alt="About" />
         <span class="card-arrow">↗</span>
       </a>
 
       <a href="portfolio.html" class="card">
-        <h2 class="card-title">PORTFOLIO</h2>
-        <img src="picture.png" class="card-icon" alt="PORTFOLIO" />
-        <span class="card-arrow">↗</span>
-      </a>
-
-      <a href="faqs.html" class="card">
-        <h2 class="card-title">FAQs</h2>
-        <img src="question mark.png" class="card-icon" alt="FAQs" />
+        <h2 class="card-title">Portfolio</h2>
+        <img src="picture.png" class="card-icon" alt="Portfolio" />
         <span class="card-arrow">↗</span>
       </a>
     </div>
@@ -409,8 +365,22 @@
     </div>
   </main>
 
-  <footer>
+  <footer class="footer">
     <span class="footer-copy">© 2026 Shriji Patel. All Rights Reserved.</span>
   </footer>
+
+  <script>
+    const footer = document.querySelector('.footer');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footer.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(footer);
+  </script>
 </body>
 </html>
