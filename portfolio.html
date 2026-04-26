@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Portfolio — Shriji Patel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+@font-face{
+font-family:'Open Sauce Sans';
+src:url('fonts/OpenSauceSans-Bold.ttf') format('truetype');
+font-weight:700;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--bg:#0d0d0d;
+--border:#2a2a2a;
+--accent:#c8a96e;
+--text:#e8e4dc;
+--muted:#6b6b6b;
+}
+
+html,body{
+height:100%;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'DM Mono', monospace;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+body::after{
+content:'';
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:2px;
+background:linear-gradient(
+90deg,
+transparent,
+var(--accent),
+transparent
+);
+z-index:20;
+}
+
+.top-nav{
+width:100%;
+max-width:1100px;
+display:flex;
+justify-content:flex-end;
+padding:26px 0 18px;
+}
+
+.top-nav a{
+text-decoration:none;
+color:var(--text);
+font-family:"Times New Roman", serif;
+font-size:.9rem;
+text-transform:uppercase;
+letter-spacing:.12em;
+transition:
+opacity .25s ease,
+transform .25s ease;
+}
+
+.top-nav a:hover{
+opacity:.7;
+transform:translateY(-1px);
+}
+
+.hero{
+width:100%;
+max-width:1100px;
+margin:0 auto;
+animation:fadeDown .9s ease both;
+}
+
+.hero img{
+width:100%;
+display:block;
+height:auto;
+transition:opacity .3s ease;
+}
+
+.hero:hover img{
+opacity:.96;
+}
+
+main{
+flex:1;
+width:100%;
+max-width:1280px;
+padding:90px 60px 120px;
+}
+
+.blank-space{
+height:900px;
+width:100%;
+}
+
+.footer{
+width:100%;
+max-width:1100px;
+padding:34px 0 46px;
+border-top:1px solid var(--border);
+text-align:center;
+opacity:0;
+transform:translateY(20px);
+transition:
+opacity .9s cubic-bezier(0.22,1,0.36,1),
+transform .9s cubic-bezier(0.22,1,0.36,1);
+}
+
+.footer.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.footer-copy{
+font-size:.85rem;
+color:var(--muted);
+letter-spacing:.08em;
+}
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-18px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:1100px){
+
+.top-nav{
+padding-left:34px;
+padding-right:34px;
+}
+
+main{
+padding:70px 34px 100px;
+}
+
+.blank-space{
+height:700px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top-nav">
+<a href="index.html">Home</a>
+</nav>
+
+<div class="hero">
+<a href="index.html">
+<img src="header.jpg" alt="Shriji Patel">
+</a>
+</div>
+
+<main>
+
+<div class="blank-space">
+
+</div>
+
+</main>
+
+<footer class="footer">
+<span class="footer-copy">
+© 2026 Shriji Patel. All Rights Reserved.
+</span>
+</footer>
+
+<script>
+const footer = document.querySelector('.footer');
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+footer.classList.add('visible');
+}
+});
+},{threshold:0.2});
+
+observer.observe(footer);
+</script>
+
+</body>
+</html>
