@@ -140,6 +140,18 @@ transparent
 margin-bottom:42px;
 }
 
+.letterboxd-divider{
+width:100%;
+height:1px;
+background:linear-gradient(
+90deg,
+rgba(0,224,84,.9),
+rgba(0,180,70,.45),
+transparent
+);
+margin-bottom:42px;
+}
+
 .video-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -174,7 +186,7 @@ align-items:start;
 }
 
 .tweet-card{
-background:#161616;
+background:#0f0f0f;
 border:1px solid #2a2a2a;
 padding:18px;
 min-height:650px;
@@ -190,6 +202,63 @@ box-shadow:
 .twitter-tweet{
 margin:0 !important;
 width:100% !important;
+}
+
+.letterboxd-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
+
+.letterboxd-card{
+text-decoration:none;
+color:var(--text);
+background:#111;
+border:1px solid #2a2a2a;
+padding:55px 34px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+min-height:420px;
+transition:
+transform .3s ease,
+border-color .3s ease,
+box-shadow .3s ease;
+box-shadow:
+0 10px 30px rgba(0,0,0,.25),
+0 0 18px rgba(0,224,84,.08);
+}
+
+.letterboxd-card:hover{
+transform:translateY(-6px);
+border-color:#00e054;
+box-shadow:
+0 16px 35px rgba(0,0,0,.35),
+0 0 24px rgba(0,224,84,.18);
+}
+
+.film-poster{
+font-size:4rem;
+margin-bottom:28px;
+}
+
+.letterboxd-card h3{
+font-family:"Times New Roman", serif;
+font-size:1.45rem;
+margin-bottom:18px;
+}
+
+.letterboxd-card p{
+font-family:"Times New Roman", serif;
+font-size:1rem;
+opacity:.8;
+margin-bottom:32px;
+}
+
+.letterboxd-card span{
+font-size:1.4rem;
+color:#00e054;
 }
 
 .footer{
@@ -235,7 +304,8 @@ padding-right:34px;
 }
 
 .video-grid,
-.tweet-grid{
+.tweet-grid,
+.letterboxd-grid{
 grid-template-columns:1fr;
 }
 
@@ -316,7 +386,7 @@ TWITTER
 <div class="tweet-grid">
 
 <div class="tweet-card">
-<blockquote class="twitter-tweet">
+<blockquote class="twitter-tweet" data-theme="dark">
 <p lang="en" dir="ltr">
 DUNE PART THREE IMAX 70MM TICKETS BOUGHT!!!!!!!
 <a href="https://t.co/8FdB67rfAk">pic.twitter.com/8FdB67rfAk</a>
@@ -329,7 +399,7 @@ April 6, 2026
 </div>
 
 <div class="tweet-card">
-<blockquote class="twitter-tweet">
+<blockquote class="twitter-tweet" data-theme="dark">
 <p lang="qme" dir="ltr">
 <a href="https://twitter.com/hashtag/ProjectHailMary">
 #ProjectHailMary
@@ -344,7 +414,7 @@ March 5, 2026
 </div>
 
 <div class="tweet-card">
-<blockquote class="twitter-tweet">
+<blockquote class="twitter-tweet" data-theme="dark">
 <p lang="en" dir="ltr">
 1 year from today I will be seated for The Odyssey.
 In 70mm IMAX.
@@ -356,6 +426,80 @@ July 17, 2025
 </a>
 </blockquote>
 </div>
+
+</div>
+
+</section>
+
+
+<div class="section-spacer"></div>
+
+
+<section>
+
+<h1 class="platform-title">
+LETTERBOXD
+</h1>
+
+<div class="letterboxd-divider"></div>
+
+<div class="letterboxd-grid">
+
+<a href="https://boxd.it/dkubPt"
+target="_blank"
+class="letterboxd-card">
+
+<div class="film-poster">
+🎬
+</div>
+
+<h3>Diary Entry One</h3>
+
+<p>
+View review on Letterboxd
+</p>
+
+<span>↗</span>
+
+</a>
+
+
+<a href="https://boxd.it/5XbvSL"
+target="_blank"
+class="letterboxd-card">
+
+<div class="film-poster">
+🍿
+</div>
+
+<h3>Diary Entry Two</h3>
+
+<p>
+View review on Letterboxd
+</p>
+
+<span>↗</span>
+
+</a>
+
+
+<a href="https://boxd.it/6Xx20H"
+target="_blank"
+class="letterboxd-card">
+
+<div class="film-poster">
+🎞
+</div>
+
+<h3>Diary Entry Three</h3>
+
+<p>
+View review on Letterboxd
+</p>
+
+<span>↗</span>
+
+</a>
 
 </div>
 
