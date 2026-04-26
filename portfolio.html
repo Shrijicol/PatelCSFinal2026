@@ -109,15 +109,10 @@ max-width:1280px;
 padding:90px 60px 120px;
 }
 
-.youtube-section{
-width:100%;
-}
-
 .platform-title{
-font-family:'Open Sauce Sans', sans-serif;
+font-family:'Open Sauce Sans',sans-serif;
 font-size:2.2rem;
 letter-spacing:.08em;
-text-align:left;
 margin-bottom:26px;
 }
 
@@ -133,6 +128,18 @@ transparent
 margin-bottom:42px;
 }
 
+.instagram-divider{
+width:100%;
+height:1px;
+background:linear-gradient(
+90deg,
+rgba(255,0,160,.9),
+rgba(214,41,118,.45),
+transparent
+);
+margin-bottom:42px;
+}
+
 .video-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -140,7 +147,6 @@ gap:28px;
 }
 
 .video-card{
-width:100%;
 aspect-ratio:16/9;
 background:#161616;
 border:1px solid #2a2a2a;
@@ -154,6 +160,33 @@ box-shadow:
 width:100%;
 height:100%;
 display:block;
+}
+
+.section-spacer{
+margin:120px 0;
+}
+
+.reel-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+align-items:start;
+}
+
+.reel-card{
+background:#161616;
+border:1px solid #2a2a2a;
+padding:20px;
+display:flex;
+justify-content:center;
+box-shadow:
+0 10px 30px rgba(0,0,0,.25),
+0 0 22px rgba(214,41,118,.08);
+}
+
+.instagram-media{
+min-width:100% !important;
+max-width:100% !important;
 }
 
 .footer{
@@ -191,19 +224,20 @@ transform:translateY(0);
 }
 }
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
 .top-nav{
 padding-left:34px;
 padding-right:34px;
 }
 
-main{
-padding:70px 34px 100px;
+.video-grid,
+.reel-grid{
+grid-template-columns:1fr;
 }
 
-.video-grid{
-grid-template-columns:1fr;
+main{
+padding:70px 34px 100px;
 }
 }
 </style>
@@ -223,7 +257,7 @@ grid-template-columns:1fr;
 
 <main>
 
-<section class="youtube-section">
+<section>
 
 <h1 class="platform-title">
 YOUTUBE
@@ -236,7 +270,7 @@ YOUTUBE
 <div class="video-card">
 <iframe
 src="https://www.youtube.com/embed/yOV-yKkpoek"
-title="YouTube video"
+title="YouTube Video 1"
 frameborder="0"
 allowfullscreen>
 </iframe>
@@ -245,7 +279,7 @@ allowfullscreen>
 <div class="video-card">
 <iframe
 src="https://www.youtube.com/embed/ZbaMxOmDsvk"
-title="YouTube video"
+title="YouTube Video 2"
 frameborder="0"
 allowfullscreen>
 </iframe>
@@ -254,10 +288,52 @@ allowfullscreen>
 <div class="video-card">
 <iframe
 src="https://www.youtube.com/embed/aTytIVLhMEs"
-title="YouTube video"
+title="YouTube Video 3"
 frameborder="0"
 allowfullscreen>
 </iframe>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="section-spacer"></div>
+
+
+<section>
+
+<h1 class="platform-title">
+INSTAGRAM
+</h1>
+
+<div class="instagram-divider"></div>
+
+<div class="reel-grid">
+
+<div class="reel-card">
+<blockquote
+class="instagram-media"
+data-instgrm-permalink="https://www.instagram.com/reel/DW9QNhrOUBi/"
+data-instgrm-version="14">
+</blockquote>
+</div>
+
+<div class="reel-card">
+<blockquote
+class="instagram-media"
+data-instgrm-permalink="https://www.instagram.com/reel/DT8kazCDkGc/"
+data-instgrm-version="14">
+</blockquote>
+</div>
+
+<div class="reel-card">
+<blockquote
+class="instagram-media"
+data-instgrm-permalink="https://www.instagram.com/reel/DSIoDHcDsha/"
+data-instgrm-version="14">
+</blockquote>
 </div>
 
 </div>
@@ -272,10 +348,12 @@ allowfullscreen>
 </span>
 </footer>
 
-<script>
-const footer = document.querySelector('.footer');
+<script async src="//www.instagram.com/embed.js"></script>
 
-const observer = new IntersectionObserver((entries)=>{
+<script>
+const footer=document.querySelector('.footer');
+
+const observer=new IntersectionObserver((entries)=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 footer.classList.add('visible');
@@ -288,3 +366,4 @@ observer.observe(footer);
 
 </body>
 </html>
+```
