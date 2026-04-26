@@ -128,13 +128,13 @@ transparent
 margin-bottom:42px;
 }
 
-.instagram-divider{
+.twitter-divider{
 width:100%;
 height:1px;
 background:linear-gradient(
 90deg,
-rgba(255,0,160,.9),
-rgba(214,41,118,.45),
+rgba(210,210,210,.9),
+rgba(150,150,150,.45),
 transparent
 );
 margin-bottom:42px;
@@ -166,28 +166,24 @@ display:block;
 margin:120px 0;
 }
 
-.reel-grid{
+.tweet-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:28px;
 }
 
-.reel-card{
+.tweet-card{
 background:#161616;
 border:1px solid #2a2a2a;
-padding:0;
-overflow:hidden;
+padding:18px;
 box-shadow:
 0 10px 30px rgba(0,0,0,.25),
-0 0 22px rgba(214,41,118,.08);
+0 0 18px rgba(255,255,255,.06);
+overflow:hidden;
 }
 
-.instagram-frame{
-width:100%;
-height:620px;
-border:0;
-display:block;
-background:#fff;
+.twitter-tweet{
+margin:0 auto !important;
 }
 
 .footer{
@@ -233,16 +229,12 @@ padding-right:34px;
 }
 
 .video-grid,
-.reel-grid{
+.tweet-grid{
 grid-template-columns:1fr;
 }
 
 main{
 padding:70px 34px 100px;
-}
-
-.instagram-frame{
-height:650px;
 }
 }
 </style>
@@ -310,32 +302,29 @@ allowfullscreen>
 <section>
 
 <h1 class="platform-title">
-INSTAGRAM
+TWITTER
 </h1>
 
-<div class="instagram-divider"></div>
+<div class="twitter-divider"></div>
 
-<div class="reel-grid">
+<div class="tweet-grid">
 
-<div class="reel-card">
-<iframe
-src="https://www.instagram.com/reel/DW9QNhrOUBi/embed"
-class="instagram-frame">
-</iframe>
+<div class="tweet-card">
+<blockquote class="twitter-tweet">
+<a href="https://x.com/shrijicol/status/2041177807686918234"></a>
+</blockquote>
 </div>
 
-<div class="reel-card">
-<iframe
-src="https://www.instagram.com/reel/DT8kazCDkGc/embed"
-class="instagram-frame">
-</iframe>
+<div class="tweet-card">
+<blockquote class="twitter-tweet">
+<a href="https://x.com/shrijicol/status/2029376921847373857"></a>
+</blockquote>
 </div>
 
-<div class="reel-card">
-<iframe
-src="https://www.instagram.com/reel/DSIoDHcDsha/embed"
-class="instagram-frame">
-</iframe>
+<div class="tweet-card">
+<blockquote class="twitter-tweet">
+<a href="https://x.com/shrijicol/status/1945693621287628870"></a>
+</blockquote>
 </div>
 
 </div>
@@ -349,6 +338,8 @@ class="instagram-frame">
 © 2026 Shriji Patel. All Rights Reserved.
 </span>
 </footer>
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
 
 <script>
 const footer=document.querySelector('.footer');
